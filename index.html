@@ -249,10 +249,10 @@
 <div class="relative z-20 max-w-4xl mx-auto space-y-stack-lg animate-fade-in-up">
 <div class="inline-flex items-center gap-stack-sm glass-panel px-4 py-2 rounded-full border-primary/20 mb-stack-md">
 <span class="relative flex h-3 w-3">
-<span class="status-pulse absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-<span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+<span class="status-pulse absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" id="statusPulseDot"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary" id="statusSolidDot"></span>
 </span>
-<span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.2em] font-bold">285 Players Online</span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.2em] font-bold" id="playersOnlineText">Menghubungkan ke server...</span>
 </div>
 <h1 class="font-display text-display text-glow tracking-tight text-on-background">
                     CORE NETWORK
@@ -396,7 +396,7 @@
 </div>
 <div class="space-y-stack-sm">
 <span class="font-label-md text-label-md text-on-surface-variant uppercase">Status</span>
-<h4 class="font-headline-md text-headline-md">Online - 26.1.2</h4>
+<h4 class="font-headline-md text-headline-md" id="serverStatusText">Menghubungkan...</h4>
 </div>
 </div>
 </section>
@@ -451,6 +451,49 @@
             el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
             observer.observe(el);
         });
+
+        // ===== Live server status (players online + status) =====
+        // Menggunakan API publik gratis api.mcsrvstat.us — tidak perlu plugin/backend.
+        const SERVER_ADDRESS = 'bgr-1.anjas.id:30267';
+        const STATUS_REFRESH_MS = 30000; // 30 detik
+
+        async function fetchServerStatus() {
+            const playersText = document.getElementById('playersOnlineText');
+            const statusText = document.getElementById('serverStatusText');
+            const pulseDot = document.getElementById('statusPulseDot');
+            const solidDot = document.getElementById('statusSolidDot');
+
+            try {
+                const res = await fetch(`https://api.mcsrvstat.us/3/${SERVER_ADDRESS}`);
+                const data = await res.json();
+
+                if (data.online) {
+                    const online = data.players?.online ?? 0;
+                    const max = data.players?.max;
+                    playersText.textContent = `${online}${max ? '/' + max : ''} Players Online`;
+                    statusText.textContent = `Online - ${data.version || '26.1.2'}`;
+
+                    pulseDot.classList.remove('bg-error');
+                    pulseDot.classList.add('bg-primary');
+                    solidDot.classList.remove('bg-error');
+                    solidDot.classList.add('bg-primary');
+                } else {
+                    playersText.textContent = 'Server Offline';
+                    statusText.textContent = 'Offline';
+
+                    pulseDot.classList.remove('bg-primary');
+                    pulseDot.classList.add('bg-error');
+                    solidDot.classList.remove('bg-primary');
+                    solidDot.classList.add('bg-error');
+                }
+            } catch (err) {
+                playersText.textContent = 'Status tidak tersedia';
+                statusText.textContent = '—';
+            }
+        }
+
+        fetchServerStatus();
+        setInterval(fetchServerStatus, STATUS_REFRESH_MS);
     </script>
 
 <div class="toast glass-panel rounded-lg px-6 py-3 flex items-center gap-3" id="globalToast">
