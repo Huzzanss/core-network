@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Store | CORE NETWORK</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root { --pixel-size: 4px; }
+        body {
+            background-color: #0f150e;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        .glass-panel {
+            background: rgba(30, 33, 36, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(74, 74, 74, 0.5);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(45, 147, 60, 0.2);
+            transform: translateY(-4px);
+        }
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+    </style>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "on-primary-fixed-variant": "#005317","secondary": "#42e3e8","primary-fixed": "#93f994","on-surface-variant": "#becab9","outline-variant": "#3f4a3d","on-tertiary-container": "#292a2a","secondary-container": "#00c7cc","on-secondary-fixed-variant": "#004f51","surface-variant": "#30362f","error": "#ffb4ab","on-primary-fixed": "#002105","tertiary-fixed-dim": "#c8c6c6","on-tertiary": "#303030","on-error-container": "#ffdad6","surface-dim": "#0f150e","on-secondary-fixed": "#002021","surface-container": "#1b211a","on-background": "#dee4d9","on-secondary": "#003738","secondary-fixed": "#5ef8fd","on-tertiary-fixed-variant": "#474747","tertiary-container": "#919090","inverse-primary": "#006e21","error-container": "#93000a","on-surface": "#dee4d9","background": "#0f150e","primary": "#78dc7b","primary-container": "#40a44b","on-primary": "#00390d","secondary-fixed-dim": "#34dbe0","on-secondary-container": "#004e50","surface-container-highest": "#30362f","tertiary-fixed": "#e4e2e2","tertiary": "#c8c6c6","outline": "#889485","surface-bright": "#353b33","surface": "#0f150e","on-primary-container": "#00320a","inverse-surface": "#dee4d9","on-error": "#690005","primary-fixed-dim": "#78dc7b","surface-container-high": "#262c24","on-tertiary-fixed": "#1b1c1c","surface-tint": "#78dc7b","surface-container-lowest": "#0a1009","inverse-on-surface": "#2c322b","surface-container-low": "#171d16"
+        },
+        "borderRadius": { "DEFAULT": "0.125rem","lg": "0.25rem","xl": "0.5rem","full": "0.75rem" },
+        "spacing": { "stack-md": "16px","margin-mobile": "16px","margin-desktop": "48px","container-max": "1280px","unit": "4px","gutter": "24px","stack-sm": "8px","stack-lg": "32px" },
+        "fontFamily": { "body-lg": ["Inter"],"label-sm": ["JetBrains Mono"],"label-md": ["JetBrains Mono"],"headline-md": ["Space Grotesk"],"display": ["Space Grotesk"],"headline-lg-mobile": ["Space Grotesk"],"body-md": ["Inter"],"headline-lg": ["Space Grotesk"] },
+        "fontSize": {
+                "body-lg": ["18px", {"lineHeight": "1.6","fontWeight": "400"}],
+                "label-sm": ["12px", {"lineHeight": "1.4","fontWeight": "500"}],
+                "label-md": ["14px", {"lineHeight": "1.4","letterSpacing": "0.05em","fontWeight": "500"}],
+                "headline-md": ["24px", {"lineHeight": "1.3","fontWeight": "600"}],
+                "display": ["64px", {"lineHeight": "1.1","letterSpacing": "-0.02em","fontWeight": "700"}],
+                "headline-lg-mobile": ["32px", {"lineHeight": "1.2","fontWeight": "700"}],
+                "body-md": ["16px", {"lineHeight": "1.6","fontWeight": "400"}],
+                "headline-lg": ["40px", {"lineHeight": "1.2","fontWeight": "700"}]
+        }
+      }
+    }
+  }
+</script>
+</head>
+<body class="bg-background text-on-background selection:bg-primary/30">
+<!-- TopNavBar -->
+<header class="w-full sticky top-0 z-50 bg-background/95 border-b border-outline-variant/30 backdrop-blur-md shadow-sm">
+<nav class="flex justify-between items-center px-margin-desktop h-20 max-w-container-max mx-auto">
+<div class="flex items-center gap-gutter">
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">CORE NETWORK</span>
+<div class="hidden md:flex items-center gap-stack-lg">
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="index.html">Play</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="gamemodes.html">Gamemodes</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="community.html">Community</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="rules.html">Rules</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="leaderboards.html">Leaderboards</a>
+</div>
+</div>
+<div class="flex items-center gap-stack-md">
+<a class="hidden sm:block font-label-md text-label-md uppercase tracking-wider px-6 py-2 border border-secondary text-secondary rounded-lg hover:bg-secondary/10 transition-all active:scale-95" href="store.html">Store</a>
+<button class="bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider px-6 py-2 rounded-lg font-bold hover:bg-primary-container transition-all active:scale-95 shadow-lg shadow-primary/10" onclick="joinNow()">Join Now</button>
+</div>
+</nav>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-24">
+<div class="text-center mb-stack-lg">
+<h1 class="font-headline-lg text-headline-lg md:text-display font-bold text-glow">Server Store</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-stack-sm max-w-2xl mx-auto">Support Core Network and unlock exclusive perks, cosmetics, and in-game advantages that don't break the balance of survival.</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mt-stack-lg">
+<!-- VIP -->
+<div class="glass-panel rounded-xl p-stack-lg glow-hover transition-all duration-300 flex flex-col">
+<div class="inline-flex p-3 bg-secondary/20 text-secondary rounded-lg mb-stack-md w-fit">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-stack-sm">VIP</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-1">Colored chat tag, /kit vip, 2 extra homes, and priority queue access.</p>
+<div class="font-headline-md text-headline-md text-secondary my-stack-md">Rp 25.000</div>
+<button class="w-full py-3 rounded-lg font-bold font-label-md uppercase tracking-wider border border-secondary text-secondary hover:bg-secondary/10 transition-all active:scale-95" onclick="showToast('Fitur pembelian belum tersedia. Hubungi staff di Discord untuk order VIP.')">Beli Sekarang</button>
+</div>
+<!-- MVP -->
+<div class="glass-panel rounded-xl p-stack-lg glow-hover transition-all duration-300 flex flex-col relative overflow-hidden border-2 border-primary">
+<div class="absolute top-0 right-0 bg-primary text-on-primary text-xs font-bold px-4 py-1 rounded-bl-lg font-label-sm">POPULAR</div>
+<div class="inline-flex p-3 bg-primary/20 text-primary rounded-lg mb-stack-md w-fit">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-stack-sm">MVP</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-1">Everything in VIP plus /fly in creative, 5 extra homes, and exclusive particle effects.</p>
+<div class="font-headline-md text-headline-md text-primary my-stack-md">Rp 50.000</div>
+<button class="w-full py-3 rounded-lg font-bold font-label-md uppercase tracking-wider bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95" onclick="showToast('Fitur pembelian belum tersedia. Hubungi staff di Discord untuk order MVP.')">Beli Sekarang</button>
+</div>
+<!-- LEGEND -->
+<div class="glass-panel rounded-xl p-stack-lg glow-hover transition-all duration-300 flex flex-col">
+<div class="inline-flex p-3 bg-secondary/20 text-secondary rounded-lg mb-stack-md w-fit">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">diamond</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-stack-sm">LEGEND</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-1">Everything in MVP plus custom join message, 10 extra homes, and a monthly crate key.</p>
+<div class="font-headline-md text-headline-md text-secondary my-stack-md">Rp 100.000</div>
+<button class="w-full py-3 rounded-lg font-bold font-label-md uppercase tracking-wider border border-secondary text-secondary hover:bg-secondary/10 transition-all active:scale-95" onclick="showToast('Fitur pembelian belum tersedia. Hubungi staff di Discord untuk order LEGEND.')">Beli Sekarang</button>
+</div>
+</div>
+
+<div class="mt-stack-lg glass-panel rounded-xl p-stack-lg text-center">
+<p class="font-body-md text-body-md text-on-surface-variant">Pembelian saat ini diproses manual lewat Discord staff. Sistem checkout otomatis akan segera hadir.</p>
+</div>
+</main>
+
+<footer class="w-full mt-stack-lg border-t border-outline-variant/20 bg-surface-container-lowest">
+<div class="flex flex-col md:flex-row justify-between items-center py-stack-lg px-margin-desktop gap-gutter max-w-container-max mx-auto">
+<div class="flex flex-col gap-stack-sm items-center md:items-start">
+<span class="font-headline-md text-headline-md text-primary font-bold">CORE NETWORK</span>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 Core Network. Not an official Minecraft product.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-stack-lg">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Support</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="rules.html">Apply for Staff</a>
+</div>
+</div>
+</footer>
+
+<div class="toast glass-panel rounded-lg px-6 py-3 flex items-center gap-3" id="globalToast">
+<span class="material-symbols-outlined text-primary" id="toastIcon">check_circle</span>
+<span class="font-body-md text-body-md" id="toastMsg">Copied!</span>
+</div>
+
+<script>
+    function showToast(msg, icon) {
+        const toast = document.getElementById('globalToast');
+        document.getElementById('toastMsg').textContent = msg;
+        document.getElementById('toastIcon').textContent = icon || 'check_circle';
+        toast.classList.add('show');
+        clearTimeout(window._toastTimeout);
+        window._toastTimeout = setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    function joinNow() {
+        navigator.clipboard.writeText('bgr-1.anjas.id:30267').then(() => {
+            showToast('Server IP copied: bgr-1.anjas.id:30267', 'content_copy');
+        });
+        setTimeout(() => { window.location.href = 'index.html#join'; }, 600);
+    }
+</script>
+</body></html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Community &amp; Gallery | Core Network</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#005317",
+                    "secondary": "#42e3e8",
+                    "primary-fixed": "#93f994",
+                    "on-surface-variant": "#becab9",
+                    "outline-variant": "#3f4a3d",
+                    "on-tertiary-container": "#292a2a",
+                    "secondary-container": "#00c7cc",
+                    "on-secondary-fixed-variant": "#004f51",
+                    "surface-variant": "#30362f",
+                    "error": "#ffb4ab",
+                    "on-primary-fixed": "#002105",
+                    "tertiary-fixed-dim": "#c8c6c6",
+                    "on-tertiary": "#303030",
+                    "on-error-container": "#ffdad6",
+                    "surface-dim": "#0f150e",
+                    "on-secondary-fixed": "#002021",
+                    "surface-container": "#1b211a",
+                    "on-background": "#dee4d9",
+                    "on-secondary": "#003738",
+                    "secondary-fixed": "#5ef8fd",
+                    "on-tertiary-fixed-variant": "#474747",
+                    "tertiary-container": "#919090",
+                    "inverse-primary": "#006e21",
+                    "error-container": "#93000a",
+                    "on-surface": "#dee4d9",
+                    "background": "#0f150e",
+                    "primary": "#78dc7b",
+                    "primary-container": "#40a44b",
+                    "on-primary": "#00390d",
+                    "secondary-fixed-dim": "#34dbe0",
+                    "on-secondary-container": "#004e50",
+                    "surface-container-highest": "#30362f",
+                    "tertiary-fixed": "#e4e2e2",
+                    "tertiary": "#c8c6c6",
+                    "outline": "#889485",
+                    "surface-bright": "#353b33",
+                    "surface": "#0f150e",
+                    "on-primary-container": "#00320a",
+                    "inverse-surface": "#dee4d9",
+                    "on-error": "#690005",
+                    "primary-fixed-dim": "#78dc7b",
+                    "surface-container-high": "#262c24",
+                    "on-tertiary-fixed": "#1b1c1c",
+                    "surface-tint": "#78dc7b",
+                    "surface-container-lowest": "#0a1009",
+                    "inverse-on-surface": "#2c322b",
+                    "surface-container-low": "#171d16"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "48px",
+                    "container-max": "1280px",
+                    "unit": "4px",
+                    "gutter": "24px",
+                    "stack-sm": "8px",
+                    "stack-lg": "32px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "label-sm": ["JetBrains Mono"],
+                    "label-md": ["JetBrains Mono"],
+                    "headline-md": ["Space Grotesk"],
+                    "display": ["Space Grotesk"],
+                    "headline-lg-mobile": ["Space Grotesk"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0f150e;
+            color: #dee4d9;
+            background-image: 
+                linear-gradient(rgba(15, 21, 14, 0.95), rgba(15, 21, 14, 0.95)),
+                url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h1v1H0V0zm1 1h1v1H1V1zm1 1h1v1H2V2zm1 1h1v1H3V3z' fill='%232d933c' fill-opacity='0.05'/%3E%3C/svg%3E");
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .masonry {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: 20px;
+            gap: 24px;
+        }
+
+        .masonry-item {
+            grid-row-end: span 15;
+        }
+
+        .masonry-item.tall { grid-row-end: span 25; }
+        .masonry-item.medium { grid-row-end: span 20; }
+
+        .glass-panel {
+            background: rgba(30, 33, 36, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(74, 74, 74, 0.3);
+        }
+
+        .pixel-border {
+            box-shadow: 
+                0 -4px 0 -2px #1e2124, 0 4px 0 -2px #1e2124,
+                -4px 0 0 -2px #1e2124, 4px 0 0 -2px #1e2124;
+        }
+
+        @keyframes pulse-dot {
+            0% { transform: scale(0.9); opacity: 0.7; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(0.9); opacity: 0.7; }
+        }
+        .animate-pulse-dot { animation: pulse-dot 2s infinite ease-in-out; }
+    
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-background selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="w-full sticky top-0 z-50 bg-background/95 dark:bg-background/95 border-b border-outline-variant/30 backdrop-blur-md shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop h-20 max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">CORE NETWORK</span>
+</div>
+<div class="hidden md:flex items-center gap-stack-lg">
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="index.html">Play</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="gamemodes.html">Gamemodes</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-primary font-bold border-b-2 border-primary pb-1" href="community.html">Community</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="rules.html">Rules</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="leaderboards.html">Leaderboards</a>
+</div>
+<div class="flex items-center gap-4">
+<a class="font-label-md text-label-md uppercase tracking-wider px-6 py-2 bg-surface-variant/50 text-secondary border border-secondary/30 hover:bg-secondary/10 transition-all active:scale-95 duration-100" href="store.html">Store</a>
+<button class="font-label-md text-label-md uppercase tracking-wider px-6 py-2 bg-primary-container text-on-primary-container font-bold hover:brightness-110 transition-all active:scale-95 duration-100" onclick="joinNow()">Join Now</button>
+</div>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg">
+<!-- Hero Section -->
+<header class="mb-20 text-center relative py-20 overflow-hidden">
+<div class="relative z-10">
+<div class="inline-flex items-center gap-2 bg-surface-container-high px-4 py-1.5 rounded-full border border-outline-variant/50 mb-6">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse-dot"></span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Community Hub</span>
+</div>
+<h1 class="font-display text-display mb-6">Legends are <span class="text-primary italic">built</span> here.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Discover the monumental creations of our players and stay updated with the latest events in the Core Network.</p>
+</div>
+</header>
+<!-- Community & Discord Section -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-gutter mb-20">
+<!-- Discord Card -->
+<div class="lg:col-span-1 glass-panel p-stack-lg flex flex-col justify-between border-l-4 border-l-secondary relative overflow-hidden group">
+<div class="absolute -right-10 -bottom-10 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-[160px]">forum</span>
+</div>
+<div>
+<div class="flex items-center gap-3 mb-6">
+<div class="w-12 h-12 flex items-center justify-center bg-secondary/20 text-secondary">
+<span class="material-symbols-outlined text-3xl" data-icon="discord">diamond</span>
+</div>
+<h3 class="font-headline-md text-headline-md">Join Discord</h3>
+</div>
+<p class="font-body-md text-on-surface-variant mb-8">Connect with 12,400+ members. Get live support, participate in polls, and share your builds.</p>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-2">
+<span class="font-label-sm text-on-surface-variant">ONLINE MEMBERS</span>
+<span class="font-label-md text-secondary font-bold">2,184</span>
+</div>
+<button class="w-full py-4 bg-secondary text-on-secondary font-bold uppercase tracking-widest text-label-md hover:brightness-110 transition-all flex items-center justify-center gap-2">
+                        Open Invitation
+                        <span class="material-symbols-outlined text-sm">north_east</span>
+</button>
+</div>
+</div>
+<!-- Events Section -->
+<div class="lg:col-span-2 space-y-gutter">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-lg text-headline-lg flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="event">event</span>
+                        Latest Events
+                    </h2>
+<a class="font-label-md text-primary hover:underline uppercase tracking-wider" href="#">View Calendar</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Event 1 -->
+<div class="bg-surface-container-high border border-outline-variant/30 p-6 hover:border-primary/50 transition-colors group">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-sm bg-primary/10 text-primary px-3 py-1">LIVE NOW</span>
+<span class="font-label-sm text-on-surface-variant">Ends in 2d 14h</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2 group-hover:text-primary transition-colors">Spring Build Competition</h4>
+<p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">Theme: "Ethereal Gardens". Submit your builds in the /warp creative area for a chance to win $50 Store Credit.</p>
+<div class="flex items-center gap-4">
+<button class="text-label-md font-bold text-primary flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                JOIN EVENT <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="bg-surface-container-high border border-outline-variant/30 p-6 hover:border-secondary/50 transition-colors group">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-sm bg-secondary/10 text-secondary px-3 py-1 uppercase">Upcoming</span>
+<span class="font-label-sm text-on-surface-variant">May 15th, 18:00 UTC</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2 group-hover:text-secondary transition-colors">Dragon Drop Party</h4>
+<p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">Celebrating 1 year of Core Network with exclusive cosmetic drops at the Spawn Square.</p>
+<div class="flex items-center gap-4">
+<button class="text-label-md font-bold text-secondary flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                SET REMINDER <span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery Section -->
+<section class="mb-20">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-2">Hall of Architects</h2>
+<p class="font-body-md text-on-surface-variant">Breathtaking moments captured across our realms by the community.</p>
+</div>
+<div class="flex gap-2">
+<button class="px-5 py-2 bg-surface-container-highest text-primary border border-primary/20 font-label-md uppercase">All</button>
+<button class="px-5 py-2 hover:bg-surface-container-highest text-on-surface-variant font-label-md uppercase transition-colors">Castles</button>
+<button class="px-5 py-2 hover:bg-surface-container-highest text-on-surface-variant font-label-md uppercase transition-colors">Nature</button>
+<button class="px-5 py-2 hover:bg-surface-container-highest text-on-surface-variant font-label-md uppercase transition-colors">Cinematic</button>
+</div>
+</div>
+<div class="masonry">
+<!-- Gallery Item 1 -->
+<div class="masonry-item tall relative group overflow-hidden border border-outline-variant/30">
+<div class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-lowest flex items-center justify-center" data-alt="A sprawling gothic Minecraft castle with towering spires and intricate stone details, set against a dramatic sunset sky with vibrant orange and purple hues. The architecture is grand and imposing, featuring flying buttresses and stained-glass windows, illuminated by soft interior lighting that spills out into the misty courtyard. Modern gaming aesthetic with cinematic shaders."><span class="material-symbols-outlined text-primary/40 text-3xl">castle</span></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+<span class="font-label-sm text-primary mb-1">BY ELDER_BUILDER</span>
+<h5 class="font-headline-md text-white">The Obsidian Keep</h5>
+</div>
+</div>
+<!-- Gallery Item 2 -->
+<div class="masonry-item medium relative group overflow-hidden border border-outline-variant/30">
+<div class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-lowest flex items-center justify-center" data-alt="A serene Minecraft landscape featuring a lush forest with custom tall trees, a crystal-clear winding river reflecting a bright blue sky, and majestic snow-capped mountains in the far distance. The scene is bathed in bright, natural morning sunlight with volumetric god rays filtering through the leaves, creating a peaceful and adventurous mood with high-performance stability."><span class="material-symbols-outlined text-primary/40 text-3xl">landscape</span></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+<span class="font-label-sm text-primary mb-1">BY NATURE_WITCH</span>
+<h5 class="font-headline-md text-white">Whispering Woods</h5>
+</div>
+</div>
+<!-- Gallery Item 3 -->
+<div class="masonry-item relative group overflow-hidden border border-outline-variant/30">
+<div class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-lowest flex items-center justify-center" data-alt="A detailed aerial view of a bustling Minecraft medieval village with thatched-roof houses, cobblestone paths, and a central market square filled with colorful stalls. The lighting is warm and golden, reminiscent of a busy afternoon, highlighting the physical and substantial feel of the stone blocks. The aesthetic is clean and structured, showing a vibrant community life."><span class="material-symbols-outlined text-primary/40 text-3xl">holiday_village</span></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+<span class="font-label-sm text-primary mb-1">BY CRAFTY_TOM</span>
+<h5 class="font-headline-md text-white">Trade Port Alpha</h5>
+</div>
+</div>
+<!-- Gallery Item 4 -->
+<div class="masonry-item medium relative group overflow-hidden border border-outline-variant/30">
+<div class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-lowest flex items-center justify-center" data-alt="An epic Minecraft fantasy landscape showcasing a floating island with a cascading waterfall falling into a deep valley below. The island features an ancient elven temple made of white quartz and gold accents, surrounded by cherry blossom trees in full bloom. The atmosphere is magical and exciting, with a deep-layered architecture and subtle outer glow effects."><span class="material-symbols-outlined text-primary/40 text-3xl">landscape</span></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+<span class="font-label-sm text-primary mb-1">BY AETHER_ARCHITECT</span>
+<h5 class="font-headline-md text-white">Sky Sanctuary</h5>
+</div>
+</div>
+<!-- Gallery Item 5 -->
+<div class="masonry-item tall relative group overflow-hidden border border-outline-variant/30">
+<div class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-lowest flex items-center justify-center" data-alt="A dark and immersive Minecraft scene inside a massive underground cavern, featuring a glowing crystal cave with shades of neon blue and purple. A small explorer character is seen standing on a bridge over a lake of lava, with the light reflecting off the carved stone gray walls. The mood is mysterious and adventurous, utilizing high-contrast accents against a deepslate backdrop."><span class="material-symbols-outlined text-primary/40 text-3xl">terrain</span></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+<span class="font-label-sm text-primary mb-1">BY MINER_49ER</span>
+<h5 class="font-headline-md text-white">Heart of the Deep</h5>
+</div>
+</div>
+<!-- Gallery Item 6 -->
+<div class="masonry-item relative group overflow-hidden border border-outline-variant/30">
+<div class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-lowest flex items-center justify-center" data-alt="A majestic Minecraft desert temple inspired by ancient Egyptian architecture, rising out of vast sand dunes under a clear, scorching sun. The sandstone blocks are textured with subtle pixel-art influences, and the entrance is flanked by two giant statues. The scene feels substantial and physical, capturing the essence of sandbox exploration and legendary achievement."><span class="material-symbols-outlined text-primary/40 text-3xl">change_history</span></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+<span class="font-label-sm text-primary mb-1">BY PHARAOH_CRAFT</span>
+<h5 class="font-headline-md text-white">Sun-Drenched Citadel</h5>
+</div>
+</div>
+</div>
+<div class="mt-stack-lg text-center">
+<button class="px-10 py-4 border border-primary text-primary font-bold uppercase tracking-widest hover:bg-primary/5 transition-all">Submit Your Build</button>
+</div>
+</section>
+<!-- Newsletter / CTA -->
+<section class="mb-20 glass-panel p-12 text-center border-t-4 border-t-primary relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-8xl">send</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg mb-4">Never miss a drop.</h2>
+<p class="font-body-md text-on-surface-variant mb-8 max-w-xl mx-auto">Subscribe to our newsletter for exclusive sneak peeks, event reminders, and community spotlights delivered to your inbox.</p>
+<form class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
+<input class="flex-grow bg-surface p-4 border border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary outline-none text-on-surface" placeholder="your@email.com" type="email"/>
+<button class="bg-primary text-on-primary font-bold px-8 py-4 uppercase tracking-wider hover:brightness-110 transition-all" type="submit">Subscribe</button>
+</form>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-stack-lg bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-margin-desktop py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-12">
+<div class="col-span-1 md:col-span-2">
+<span class="font-headline-md text-headline-md text-primary font-bold block mb-4">CORE NETWORK</span>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">The ultimate sandbox experience for builders and adventurers. Join thousands of players in a limitless world of creativity.</p>
+</div>
+<div>
+<h6 class="font-label-md text-on-surface uppercase tracking-widest mb-6">Navigation</h6>
+<ul class="space-y-4">
+<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="index.html">Home</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Play Now</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="store.html">Store</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Support Hub</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-label-md text-on-surface uppercase tracking-widest mb-6">Legal &amp; Work</h6>
+<ul class="space-y-4">
+<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="font-body-md text-secondary font-bold hover:brightness-110 transition-all" href="#">Apply for Staff</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Creator Program</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-md text-on-surface-variant opacity-60">© 2024 Core Network. Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.</p>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined">chat</span></a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined">video_library</span></a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Masonry fix for staggered height effect without a full library
+        document.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.masonry-item');
+            const variants = ['', 'medium', 'tall'];
+            items.forEach((item, index) => {
+                if (!item.classList.contains('medium') && !item.classList.contains('tall')) {
+                    // Randomize a bit more if not explicitly set
+                    const variant = variants[Math.floor(Math.random() * variants.length)];
+                    if(variant) item.classList.add(variant);
+                }
+            });
+        });
+
+        // Hover effect for the "Slabs"
+        const cards = document.querySelectorAll('.bg-surface-container-high, .glass-panel');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+                card.style.boxShadow = '0 10px 30px -10px rgba(45, 147, 60, 0.2)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = 'none';
+            });
+            card.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+        });
+    </script>
+
+<div class="toast glass-panel rounded-lg px-6 py-3 flex items-center gap-3" id="globalToast">
+<span class="material-symbols-outlined text-primary" id="toastIcon">check_circle</span>
+<span class="font-body-md text-body-md" id="toastMsg">Copied!</span>
+</div>
+<script>
+
+    function showToast(msg, icon) {
+        const toast = document.getElementById('globalToast');
+        if (!toast) return;
+        document.getElementById('toastMsg').textContent = msg;
+        document.getElementById('toastIcon').textContent = icon || 'check_circle';
+        toast.classList.add('show');
+        clearTimeout(window._toastTimeout);
+        window._toastTimeout = setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    function joinNow() {
+        navigator.clipboard.writeText('bgr-1.anjas.id:30267').then(() => {
+            showToast('Server IP copied: bgr-1.anjas.id:30267', 'content_copy');
+        });
+        if (!window.location.pathname.endsWith('index.html') && window.location.pathname !== '/') {
+            setTimeout(() => { window.location.href = 'index.html#join'; }, 600);
+        } else {
+            const el = document.getElementById('join');
+            if (el) el.scrollIntoView({behavior: 'smooth'});
+        }
+    }
+
+</script>
+</body></html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Leaderboards | CORE NETWORK</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root { --pixel-size: 4px; }
+        body {
+            background-color: #0f150e;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        .glass-panel {
+            background: rgba(30, 33, 36, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(74, 74, 74, 0.5);
+        }
+        .rank-row:hover { background: rgba(120, 220, 123, 0.05); }
+        .status-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .3; }
+        }
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+    </style>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "on-primary-fixed-variant": "#005317","secondary": "#42e3e8","primary-fixed": "#93f994","on-surface-variant": "#becab9","outline-variant": "#3f4a3d","on-tertiary-container": "#292a2a","secondary-container": "#00c7cc","on-secondary-fixed-variant": "#004f51","surface-variant": "#30362f","error": "#ffb4ab","on-primary-fixed": "#002105","tertiary-fixed-dim": "#c8c6c6","on-tertiary": "#303030","on-error-container": "#ffdad6","surface-dim": "#0f150e","on-secondary-fixed": "#002021","surface-container": "#1b211a","on-background": "#dee4d9","on-secondary": "#003738","secondary-fixed": "#5ef8fd","on-tertiary-fixed-variant": "#474747","tertiary-container": "#919090","inverse-primary": "#006e21","error-container": "#93000a","on-surface": "#dee4d9","background": "#0f150e","primary": "#78dc7b","primary-container": "#40a44b","on-primary": "#00390d","secondary-fixed-dim": "#34dbe0","on-secondary-container": "#004e50","surface-container-highest": "#30362f","tertiary-fixed": "#e4e2e2","tertiary": "#c8c6c6","outline": "#889485","surface-bright": "#353b33","surface": "#0f150e","on-primary-container": "#00320a","inverse-surface": "#dee4d9","on-error": "#690005","primary-fixed-dim": "#78dc7b","surface-container-high": "#262c24","on-tertiary-fixed": "#1b1c1c","surface-tint": "#78dc7b","surface-container-lowest": "#0a1009","inverse-on-surface": "#2c322b","surface-container-low": "#171d16"
+        },
+        "borderRadius": { "DEFAULT": "0.125rem","lg": "0.25rem","xl": "0.5rem","full": "0.75rem" },
+        "spacing": { "stack-md": "16px","margin-mobile": "16px","margin-desktop": "48px","container-max": "1280px","unit": "4px","gutter": "24px","stack-sm": "8px","stack-lg": "32px" },
+        "fontFamily": { "body-lg": ["Inter"],"label-sm": ["JetBrains Mono"],"label-md": ["JetBrains Mono"],"headline-md": ["Space Grotesk"],"display": ["Space Grotesk"],"headline-lg-mobile": ["Space Grotesk"],"body-md": ["Inter"],"headline-lg": ["Space Grotesk"] },
+        "fontSize": {
+                "body-lg": ["18px", {"lineHeight": "1.6","fontWeight": "400"}],
+                "label-sm": ["12px", {"lineHeight": "1.4","fontWeight": "500"}],
+                "label-md": ["14px", {"lineHeight": "1.4","letterSpacing": "0.05em","fontWeight": "500"}],
+                "headline-md": ["24px", {"lineHeight": "1.3","fontWeight": "600"}],
+                "display": ["64px", {"lineHeight": "1.1","letterSpacing": "-0.02em","fontWeight": "700"}],
+                "headline-lg-mobile": ["32px", {"lineHeight": "1.2","fontWeight": "700"}],
+                "body-md": ["16px", {"lineHeight": "1.6","fontWeight": "400"}],
+                "headline-lg": ["40px", {"lineHeight": "1.2","fontWeight": "700"}]
+        }
+      }
+    }
+  }
+</script>
+</head>
+<body class="bg-background text-on-background selection:bg-primary/30">
+<!-- TopNavBar -->
+<header class="w-full sticky top-0 z-50 bg-background/95 border-b border-outline-variant/30 backdrop-blur-md shadow-sm">
+<nav class="flex justify-between items-center px-margin-desktop h-20 max-w-container-max mx-auto">
+<div class="flex items-center gap-gutter">
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">CORE NETWORK</span>
+<div class="hidden md:flex items-center gap-stack-lg">
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="index.html">Play</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="gamemodes.html">Gamemodes</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="community.html">Community</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="rules.html">Rules</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-primary font-bold border-b-2 border-primary pb-1" href="leaderboards.html">Leaderboards</a>
+</div>
+</div>
+<div class="flex items-center gap-stack-md">
+<a class="hidden sm:block font-label-md text-label-md uppercase tracking-wider px-6 py-2 border border-secondary text-secondary rounded-lg hover:bg-secondary/10 transition-all active:scale-95" href="store.html">Store</a>
+<button class="bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider px-6 py-2 rounded-lg font-bold hover:bg-primary-container transition-all active:scale-95 shadow-lg shadow-primary/10" onclick="joinNow()">Join Now</button>
+</div>
+</nav>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-24">
+<div class="text-center mb-stack-lg">
+<h1 class="font-headline-lg text-headline-lg md:text-display font-bold text-glow">Leaderboards</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-stack-sm max-w-2xl mx-auto">Top players across Core Network, ranked by total playtime.</p>
+</div>
+
+<!-- Category -->
+<div class="flex justify-center mb-stack-lg">
+<span class="px-6 py-2 rounded-lg font-label-md text-label-md uppercase tracking-wider bg-primary text-on-primary font-bold">Playtime</span>
+</div>
+
+<div class="flex justify-center items-center gap-2 mb-stack-sm">
+<span class="w-2 h-2 rounded-full bg-primary status-pulse" id="lbStatusDot"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant" id="lbLastUpdated">Menghubungkan ke server...</span>
+</div>
+<div class="glass-panel rounded-xl overflow-hidden">
+<table class="w-full text-left">
+<thead class="bg-surface-container-high">
+<tr>
+<th class="p-stack-md font-label-sm text-label-sm uppercase text-on-surface-variant">Rank</th>
+<th class="p-stack-md font-label-sm text-label-sm uppercase text-on-surface-variant">Player</th>
+<th class="p-stack-md font-label-sm text-label-sm uppercase text-on-surface-variant text-right">Score</th>
+</tr>
+</thead>
+<tbody id="lbBody"></tbody>
+</table>
+</div>
+
+<div class="mt-stack-lg glass-panel rounded-xl p-stack-lg text-center">
+<p class="font-body-md text-body-md text-on-surface-variant">Leaderboard ini otomatis update tiap 15 detik langsung dari data server. Lihat panduan koneksi di file <code class="text-primary">api/README.md</code>.</p>
+</div>
+</main>
+
+<footer class="w-full mt-stack-lg border-t border-outline-variant/20 bg-surface-container-lowest">
+<div class="flex flex-col md:flex-row justify-between items-center py-stack-lg px-margin-desktop gap-gutter max-w-container-max mx-auto">
+<div class="flex flex-col gap-stack-sm items-center md:items-start">
+<span class="font-headline-md text-headline-md text-primary font-bold">CORE NETWORK</span>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 Core Network. Not an official Minecraft product.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-stack-lg">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Support</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="rules.html">Apply for Staff</a>
+</div>
+</div>
+</footer>
+
+<div class="toast glass-panel rounded-lg px-6 py-3 flex items-center gap-3" id="globalToast">
+<span class="material-symbols-outlined text-primary" id="toastIcon">check_circle</span>
+<span class="font-body-md text-body-md" id="toastMsg">Copied!</span>
+</div>
+
+<script>
+<script>
+    // GANTI URL ini ke lokasi api/leaderboard.php di hosting kamu, misal:
+    // 'https://domainkamu.com/api/leaderboard.php'
+    const LEADERBOARD_API_URL = 'api/leaderboard.php';
+    const REFRESH_INTERVAL_MS = 15000; // 15 detik
+
+    function renderPlayers(players) {
+        const body = document.getElementById('lbBody');
+        body.innerHTML = '';
+        if (!players || players.length === 0) {
+            body.innerHTML = `
+                <tr>
+                    <td colspan="3" class="p-stack-lg text-center font-body-md text-on-surface-variant">
+                        Belum ada data pemain. Leaderboard akan terisi otomatis setelah server mengirim data.
+                    </td>
+                </tr>
+            `;
+            return;
+        }
+        players.forEach((row, i) => {
+            const rankColor = i === 0 ? 'text-primary font-bold' : i === 1 ? 'text-secondary font-bold' : i === 2 ? 'text-on-surface font-bold' : 'text-on-surface-variant';
+            const tr = document.createElement('tr');
+            tr.className = 'rank-row border-t border-outline-variant/10 transition-colors';
+            tr.innerHTML = `
+                <td class="p-stack-md font-label-md ${rankColor}">#${i + 1}</td>
+                <td class="p-stack-md font-body-md">${row.name}</td>
+                <td class="p-stack-md font-label-md text-right text-primary">${row.playtime}</td>
+            `;
+            body.appendChild(tr);
+        });
+    }
+
+    function formatUpdatedAt(iso) {
+        if (!iso) return 'Belum pernah update';
+        const d = new Date(iso);
+        return 'Update terakhir: ' + d.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    }
+
+    async function fetchLeaderboard() {
+        const dot = document.getElementById('lbStatusDot');
+        const label = document.getElementById('lbLastUpdated');
+        try {
+            const res = await fetch(LEADERBOARD_API_URL, { cache: 'no-store' });
+            if (!res.ok) throw new Error('Server response not OK');
+            const json = await res.json();
+            renderPlayers(json.players || []);
+            label.textContent = formatUpdatedAt(json.updated_at);
+            dot.classList.remove('bg-error');
+            dot.classList.add('bg-primary');
+        } catch (err) {
+            label.textContent = 'Gagal mengambil data dari server. Menunggu koneksi...';
+            dot.classList.remove('bg-primary');
+            dot.classList.add('bg-error');
+        }
+    }
+
+    fetchLeaderboard();
+    setInterval(fetchLeaderboard, REFRESH_INTERVAL_MS);
+
+
+    function showToast(msg, icon) {
+        const toast = document.getElementById('globalToast');
+        document.getElementById('toastMsg').textContent = msg;
+        document.getElementById('toastIcon').textContent = icon || 'check_circle';
+        toast.classList.add('show');
+        clearTimeout(window._toastTimeout);
+        window._toastTimeout = setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    function joinNow() {
+        navigator.clipboard.writeText('bgr-1.anjas.id:30267').then(() => {
+            showToast('Server IP copied: bgr-1.anjas.id:30267', 'content_copy');
+        });
+        setTimeout(() => { window.location.href = 'index.html#join'; }, 600);
+    }
+</script>
+</body></html>

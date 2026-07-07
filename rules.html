@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rules &amp; Staff | CORE NETWORK</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --pixel-size: 4px;
+        }
+        body {
+            background-color: #0f150e;
+            background-image: 
+                linear-gradient(rgba(120, 220, 123, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(120, 220, 123, 0.03) 1px, transparent 1px);
+            background-size: 32px 32px;
+            scroll-behavior: smooth;
+        }
+        .slab-border {
+            border: 1px solid #3f4a3d;
+            box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+        }
+        .minecraft-shadow {
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.5);
+        }
+        .glass-panel {
+            background: rgba(27, 33, 26, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        .rule-number {
+            font-family: 'JetBrains Mono', monospace;
+            -webkit-text-stroke: 1px rgba(120, 220, 123, 0.3);
+            color: transparent;
+        }
+    
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#005317",
+                        "secondary": "#42e3e8",
+                        "primary-fixed": "#93f994",
+                        "on-surface-variant": "#becab9",
+                        "outline-variant": "#3f4a3d",
+                        "on-tertiary-container": "#292a2a",
+                        "secondary-container": "#00c7cc",
+                        "on-secondary-fixed-variant": "#004f51",
+                        "surface-variant": "#30362f",
+                        "error": "#ffb4ab",
+                        "on-primary-fixed": "#002105",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "on-tertiary": "#303030",
+                        "on-error-container": "#ffdad6",
+                        "surface-dim": "#0f150e",
+                        "on-secondary-fixed": "#002021",
+                        "surface-container": "#1b211a",
+                        "on-background": "#dee4d9",
+                        "on-secondary": "#003738",
+                        "secondary-fixed": "#5ef8fd",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "tertiary-container": "#919090",
+                        "inverse-primary": "#006e21",
+                        "error-container": "#93000a",
+                        "on-surface": "#dee4d9",
+                        "background": "#0f150e",
+                        "primary": "#78dc7b",
+                        "primary-container": "#40a44b",
+                        "on-primary": "#00390d",
+                        "secondary-fixed-dim": "#34dbe0",
+                        "on-secondary-container": "#004e50",
+                        "surface-container-highest": "#30362f",
+                        "tertiary-fixed": "#e4e2e2",
+                        "tertiary": "#c8c6c6",
+                        "outline": "#889485",
+                        "surface-bright": "#353b33",
+                        "surface": "#0f150e",
+                        "on-primary-container": "#00320a",
+                        "inverse-surface": "#dee4d9",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#78dc7b",
+                        "surface-container-high": "#262c24",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "surface-tint": "#78dc7b",
+                        "surface-container-lowest": "#0a1009",
+                        "inverse-on-surface": "#2c322b",
+                        "surface-container-low": "#171d16"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "48px",
+                        "container-max": "1280px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "stack-lg": "32px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "label-sm": ["JetBrains Mono"],
+                        "label-md": ["JetBrains Mono"],
+                        "headline-md": ["Space Grotesk"],
+                        "display": ["Space Grotesk"],
+                        "headline-lg-mobile": ["Space Grotesk"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-on-surface font-body-md overflow-x-hidden">
+<!-- Header Section (TopNavBar Anchor) -->
+<header class="w-full sticky top-0 z-50 bg-background/95 dark:bg-background/95 border-b border-outline-variant/30 backdrop-blur-md shadow-sm">
+<nav class="flex justify-between items-center px-margin-desktop h-20 max-w-container-max mx-auto">
+<div class="flex items-center gap-gutter">
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">CORE NETWORK</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="index.html">Home</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="gamemodes.html">Gamemodes</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="community.html">Community</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-primary font-bold border-b-2 border-primary pb-1" href="rules.html">Rules</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="leaderboards.html">Leaderboards</a>
+</div>
+</div>
+<div class="flex items-center gap-stack-md">
+<a class="px-6 py-2 bg-surface-variant/50 border border-outline-variant text-on-surface font-label-md uppercase tracking-widest hover:bg-surface-variant transition-all duration-200 active:scale-95" href="store.html">Store</a>
+<button class="px-6 py-2 bg-primary text-on-primary font-label-md uppercase tracking-widest font-bold hover:brightness-110 transition-all duration-200 active:scale-95 shadow-[4px_4px_0px_0px_#00390d]" onclick="joinNow()">Join Now</button>
+</div>
+</nav>
+</header>
+<!-- Hero Section -->
+<section class="relative h-[409px] min-h-[300px] flex items-center justify-center overflow-hidden">
+<div class="relative z-10 text-center px-margin-mobile">
+<h1 class="font-display text-display uppercase minecraft-shadow mb-4">Laws &amp; Guardians</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Maintaining a fair and epic experience for every pioneer in the Core realm.</p>
+</div>
+</section>
+<main class="max-w-container-max mx-auto px-margin-desktop py-20">
+<!-- Rules Section (Bento Grid Style) -->
+<div class="mb-32" id="rules">
+<div class="flex items-center justify-between mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-4xl">gavel</span>
+                    SERVER RULES
+                </h2>
+<div class="hidden md:block h-[2px] flex-grow mx-8 bg-gradient-to-r from-outline-variant to-transparent"></div>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">v2.4 Final</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Rule 1 -->
+<div class="slab-border bg-surface-container p-stack-lg flex flex-col gap-4 hover:border-primary/50 transition-all group">
+<span class="rule-number text-6xl font-bold">01</span>
+<h3 class="font-headline-md text-headline-md text-primary group-hover:translate-x-2 transition-transform">NO GRIEFING</h3>
+<p class="font-body-md text-on-surface-variant">Do not destroy, alter, or damage player-made structures without explicit permission from the owner. Respect the effort of your fellow pioneers.</p>
+</div>
+<!-- Rule 2 -->
+<div class="slab-border bg-surface-container p-stack-lg flex flex-col gap-4 hover:border-primary/50 transition-all group md:col-span-2">
+<span class="rule-number text-6xl font-bold">02</span>
+<h3 class="font-headline-md text-headline-md text-primary group-hover:translate-x-2 transition-transform">RESPECT ALL PLAYERS</h3>
+<p class="font-body-md text-on-surface-variant">Harassment, hate speech, sexism, and toxicity are strictly prohibited. Core Network is an inclusive space. Keep the banter friendly and constructive in all chat channels.</p>
+</div>
+<!-- Rule 3 -->
+<div class="slab-border bg-surface-container p-stack-lg flex flex-col gap-4 hover:border-primary/50 transition-all group md:col-span-2">
+<span class="rule-number text-6xl font-bold">03</span>
+<h3 class="font-headline-md text-headline-md text-primary group-hover:translate-x-2 transition-transform">NO CHEATING OR EXPLOITS</h3>
+<p class="font-body-md text-on-surface-variant">The use of hacked clients, X-ray packs, auto-clickers, or exploiting server bugs for an unfair advantage will result in an immediate and permanent ban. Play fair, play long.</p>
+</div>
+<!-- Rule 4 -->
+<div class="slab-border bg-surface-container p-stack-lg flex flex-col gap-4 hover:border-primary/50 transition-all group">
+<span class="rule-number text-6xl font-bold">04</span>
+<h3 class="font-headline-md text-headline-md text-primary group-hover:translate-x-2 transition-transform">SPAM &amp; ADVERTISING</h3>
+<p class="font-body-md text-on-surface-variant">Do not spam the global chat with repetitive messages or advertise other servers. Community links (Twitch/YouTube) are permitted only in designated channels.</p>
+</div>
+<!-- Rule 5 -->
+<div class="slab-border bg-surface-container p-stack-lg flex flex-col gap-4 hover:border-primary/50 transition-all group">
+<span class="rule-number text-6xl font-bold">05</span>
+<h3 class="font-headline-md text-headline-md text-primary group-hover:translate-x-2 transition-transform">COMMON SENSE</h3>
+<p class="font-body-md text-on-surface-variant">Not every rule is explicitly written. Use your judgment. If an action feels like it harms the community, it likely isn't allowed.</p>
+</div>
+<!-- Rule 6 -->
+<div class="slab-border bg-surface-container p-stack-lg flex flex-col gap-4 hover:border-primary/50 transition-all group md:col-span-2">
+<span class="rule-number text-6xl font-bold">06</span>
+<h3 class="font-headline-md text-headline-md text-primary group-hover:translate-x-2 transition-transform">STAFF DIRECTIONS</h3>
+<p class="font-body-md text-on-surface-variant">Always follow the instructions provided by Core Staff. If you feel a decision is unfair, use the proper appeal channels on our Discord rather than arguing in public chat.</p>
+</div>
+</div>
+</div>
+<!-- Staff Section -->
+<div class="relative" id="staff">
+<div class="flex flex-col items-center mb-16 text-center">
+<span class="font-label-md text-label-md text-secondary uppercase tracking-[0.3em] mb-4">The Custodians</span>
+<h2 class="font-headline-lg text-headline-lg mb-4">MEET THE STAFF TEAM</h2>
+<div class="w-24 h-1 bg-secondary"></div>
+</div>
+<!-- Staff Grid -->
+<div class="space-y-16">
+<!-- Admins -->
+<div>
+<h3 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-8 flex items-center gap-4">
+<span class="w-8 h-[1px] bg-outline-variant"></span>
+                        Administrators
+                    </h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Admin 1 -->
+<div class="bg-surface-container-low slab-border p-6 flex flex-col items-center text-center group">
+<div class="relative mb-6">
+<div class="absolute inset-0 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="w-24 h-24 relative z-10 border-4 border-outline shadow-lg group-hover:scale-105 transition-transform duration-300 bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-lowest flex items-center justify-center" data-alt="A stylized pixelated Minecraft head of a king with a golden crown and emerald eyes, high resolution, detailed lighting, gaming avatar style on a dark background."><span class="material-symbols-outlined text-primary/40 text-3xl">account_circle</span></div>
+</div>
+<span class="font-label-sm text-label-sm px-3 py-1 bg-error-container text-on-error-container rounded-full mb-2 uppercase tracking-tighter">Admin</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">CoreLord</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Server Founder</p>
+</div>
+<!-- Admin 2 -->
+<div class="bg-surface-container-low slab-border p-6 flex flex-col items-center text-center group">
+<div class="relative mb-6">
+<div class="w-24 h-24 relative z-10 border-4 border-outline shadow-lg group-hover:scale-105 transition-transform duration-300 bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-lowest flex items-center justify-center" data-alt="A detailed Minecraft avatar head of a mechanical engineer with a red goggles and metallic parts, set in a professional studio gaming aesthetic, dark background, emerald accents."><span class="material-symbols-outlined text-primary/40 text-3xl">account_circle</span></div>
+</div>
+<span class="font-label-sm text-label-sm px-3 py-1 bg-error-container text-on-error-container rounded-full mb-2 uppercase tracking-tighter">Admin</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">IronForge</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Operations Lead</p>
+</div>
+</div>
+</div>
+<!-- Developers -->
+<div>
+<h3 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-8 flex items-center gap-4">
+<span class="w-8 h-[1px] bg-outline-variant"></span>
+                        Development Team
+                    </h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="bg-surface-container-low slab-border p-6 flex flex-col items-center text-center group">
+<div class="w-24 h-24 mb-6 border-4 border-secondary shadow-lg group-hover:scale-105 transition-transform duration-300 bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-lowest flex items-center justify-center" data-alt="A Minecraft avatar head featuring a futuristic tech wizard with glowing cyan circuits and a hood, high resolution gaming art style, dramatic lighting, dark background."><span class="material-symbols-outlined text-primary/40 text-3xl">account_circle</span></div>
+<span class="font-label-sm text-label-sm px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full mb-2 uppercase tracking-tighter">Developer</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">Cortex_Null</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Plugin Architect</p>
+</div>
+</div>
+</div>
+<!-- Moderators -->
+<div>
+<h3 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-8 flex items-center gap-4">
+<span class="w-8 h-[1px] bg-outline-variant"></span>
+                        Moderators &amp; Helpers
+                    </h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="bg-surface-container-low slab-border p-6 flex flex-col items-center text-center group">
+<div class="w-24 h-24 mb-6 border-4 border-primary shadow-lg group-hover:scale-105 transition-transform duration-300 bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-lowest flex items-center justify-center" data-alt="A friendly Minecraft avatar head with a classic knight helmet and blue plumes, crisp edges, high-end digital art style, dark atmospheric background with forest green light."><span class="material-symbols-outlined text-primary/40 text-3xl">landscape</span></div>
+<span class="font-label-sm text-label-sm px-3 py-1 bg-primary-container text-on-primary-container rounded-full mb-2 uppercase tracking-tighter">Moderator</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">SirBlock</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Community Safety</p>
+</div>
+<div class="bg-surface-container-low slab-border p-6 flex flex-col items-center text-center group">
+<div class="w-24 h-24 mb-6 border-4 border-primary shadow-lg group-hover:scale-105 transition-transform duration-300 bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-lowest flex items-center justify-center" data-alt="A pixel-perfect Minecraft head of a forest spirit with leaves and vines intertwined, gentle expression, gaming profile picture style, vivid green color palette."><span class="material-symbols-outlined text-primary/40 text-3xl">landscape</span></div>
+<span class="font-label-sm text-label-sm px-3 py-1 bg-primary-container text-on-primary-container rounded-full mb-2 uppercase tracking-tighter">Moderator</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">FloraVibe</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Player Support</p>
+</div>
+<div class="bg-surface-container-low slab-border p-6 flex flex-col items-center text-center group">
+<div class="w-24 h-24 mb-6 border-4 border-outline-variant shadow-lg group-hover:scale-105 transition-transform duration-300 bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-lowest flex items-center justify-center" data-alt="A Minecraft avatar head of a sleek ninja with a silver mask and red band, sharp details, high contrast, gaming aesthetic, dark background."><span class="material-symbols-outlined text-primary/40 text-3xl">account_circle</span></div>
+<span class="font-label-sm text-label-sm px-3 py-1 bg-surface-variant text-on-surface rounded-full mb-2 uppercase tracking-tighter">Helper</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">ZenithX</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Junior Support</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Join CTA -->
+<section class="mt-32 p-1 bg-gradient-to-br from-primary via-secondary to-primary/20">
+<div class="bg-surface-container-lowest py-20 px-margin-desktop text-center relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+</div>
+<div class="relative z-10">
+<h2 class="font-display text-headline-lg uppercase mb-6">Ready to join the community?</h2>
+<p class="font-body-lg text-on-surface-variant mb-10 max-w-xl mx-auto">Jump into Core Network today and experience the future of Minecraft multiplayer.</p>
+<div class="flex flex-col sm:flex-row gap-gutter justify-center items-center">
+<div class="bg-surface p-4 slab-border flex items-center gap-4">
+<span class="font-label-md text-secondary select-all">bgr-1.anjas.id:30267</span>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" onclick="navigator.clipboard.writeText('bgr-1.anjas.id:30267')">content_copy</button>
+</div>
+<button class="px-10 py-5 bg-primary text-on-primary font-label-md uppercase font-bold tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-[6px_6px_0px_0px_#00390d]">Apply for Staff</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-stack-lg bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-center py-stack-lg px-margin-desktop gap-gutter max-w-container-max mx-auto">
+<div class="flex flex-col gap-2">
+<span class="font-headline-md text-headline-md text-primary uppercase font-bold tracking-tight">CORE NETWORK</span>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">© 2024 Core Network. Not an official Minecraft product. We are not affiliated with or endorsed by Mojang AB.</p>
+</div>
+<div class="flex flex-wrap gap-stack-lg justify-center">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Support</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Apply for Staff</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple scroll reveal observer
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.slab-border').forEach(el => {
+            el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
+            observer.observe(el);
+        });
+    </script>
+
+<div class="toast glass-panel rounded-lg px-6 py-3 flex items-center gap-3" id="globalToast">
+<span class="material-symbols-outlined text-primary" id="toastIcon">check_circle</span>
+<span class="font-body-md text-body-md" id="toastMsg">Copied!</span>
+</div>
+<script>
+
+    function showToast(msg, icon) {
+        const toast = document.getElementById('globalToast');
+        if (!toast) return;
+        document.getElementById('toastMsg').textContent = msg;
+        document.getElementById('toastIcon').textContent = icon || 'check_circle';
+        toast.classList.add('show');
+        clearTimeout(window._toastTimeout);
+        window._toastTimeout = setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    function joinNow() {
+        navigator.clipboard.writeText('bgr-1.anjas.id:30267').then(() => {
+            showToast('Server IP copied: bgr-1.anjas.id:30267', 'content_copy');
+        });
+        if (!window.location.pathname.endsWith('index.html') && window.location.pathname !== '/') {
+            setTimeout(() => { window.location.href = 'index.html#join'; }, 600);
+        } else {
+            const el = document.getElementById('join');
+            if (el) el.scrollIntoView({behavior: 'smooth'});
+        }
+    }
+
+</script>
+</body></html>
